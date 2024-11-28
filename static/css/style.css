@@ -1,0 +1,182 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    line-height: 1.6;
+    background-image: url('/static/images/background1.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main container styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(170, 168, 168, 0.9); /* Slight transparency */
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 800px; /* Fixed width */
+}
+
+/* Header styling */
+header {
+    margin-bottom: 30px;
+    background-image: url('/static/images/background.jpg'); /* Background image */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 750px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 1.1rem;
+}
+
+/* Flex container for buttons */
+.button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Align the buttons vertically */
+    gap: 15px; /* Add spacing between the buttons */
+    margin-top: 20px; /* Add some space above the button container */
+}
+
+/* Dropdown button styling */
+.dropbtn {
+    background-color: #091521;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 225px; /* Set the size same as the Generate Graph button */
+}
+
+/* Hover effect for dropdown button */
+.dropbtn:hover {
+    background-color: #7c7a81;
+    color: black;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative; /* Ensure dropdown content is positioned within the container */
+    display: inline-block;
+}
+
+/* Style the dropdown content (the items) */
+.dropdown-content {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 250px; /* Same width as the dropdown button */
+    z-index: 10;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    max-height: 300px; /* Limit the dropdown content height */
+    overflow-y: auto; /* Enable vertical scrolling within the dropdown */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Show the dropdown when the user hovers over the button */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Dropdown items */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content a img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Customize scrollbar */
+.dropdown-content::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background-color: #091521; /* Color of the scrollbar thumb */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+    background-color: #7c7a81; /* Hover color of the scrollbar thumb */
+}
+
+/* "Generate Graph" button styling */
+button[type="submit"] {
+    background-color: #091521;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    width: 225px; /* Match the size of the dropdown button */
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for "Generate Graph" button */
+button[type="submit"]:hover {
+    background-color: #7c7a81;
+    color: black;
+}
+
+/* Graph display styling */
+#graph {
+    margin-top: 20px; /* Smaller margin */
+    max-width: 80%; /* Limit the width to 80% of the container's width */
+    height: auto;    /* Keep aspect ratio */
+    background: rgba(170, 168, 168, 0.9);
+    border: 1px solid #bdbcbc;
+    border-radius: 10px; /* Smaller border radius */
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #535151;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
