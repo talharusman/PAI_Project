@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trend Navigator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Predict the Future of Stocks</h1>
+            <p>Predictive Analytics for Cryptocurrency and Stock Markets</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Form for selecting cryptocurrency -->
+            <form id="crypto-form" action="/generate" method="post">
+                <!-- Flex container for buttons -->
+                <div class="button-container">
+                    <!-- Dropdown Button -->
+                    <div class="dropdown">
+                        <button type="button" class="dropbtn" id="dropdown-btn">Select Cryptocurrency</button>
+                        <div class="dropdown-content" id="dropdown-content">
+                            <a href="#" data-value="Avalanche"><img src="/static/images/avalanche_logo.png" alt="Avalanche"> Avalanche</a>
+                            <a href="#" data-value="Bitcoin Cash"><img src="/static/images/bitcoin_cash_logo.png" alt="Bitcoin Cash"> Bitcoin Cash</a>
+                            <a href="#" data-value="Bitcoin"><img src="/static/images/bitcoin_logo.png" alt="Bitcoin"> Bitcoin</a>
+                            <a href="#" data-value="BNB"><img src="/static/images/bnb_logo.png" alt="BNB"> BNB</a>
+                            <a href="#" data-value="Cardano"><img src="/static/images/cardano_logo.png" alt="Cardano"> Cardano</a>
+                            <a href="#" data-value="Chainlink"><img src="/static/images/chainlink_logo.png" alt="Chainlink"> Chainlink</a>
+                            <a href="#" data-value="Ethereum"><img src="/static/images/ethereum_logo.png" alt="Ethereum"> Ethereum</a>
+                            <a href="#" data-value="Litecoin"><img src="/static/images/litecoin_logo.png" alt="Litecoin"> Litecoin</a>
+                            <a href="#" data-value="NEAR Protocol"><img src="/static/images/near_protocol_logo.png" alt="NEAR Protocol"> NEAR Protocol</a>
+                            <a href="#" data-value="Polkadot"><img src="/static/images/polkadot_logo.png" alt="Polkadot"> Polkadot</a>
+                            <a href="#" data-value="Shiba Inu"><img src="/static/images/shiba_inu_logo.png" alt="Shiba Inu"> Shiba Inu</a>
+                            <a href="#" data-value="Solana"><img src="/static/images/solana_logo.png" alt="Solana"> Solana</a>
+                            <a href="#" data-value="Sui"><img src="/static/images/sui_logo.png" alt="Sui"> Sui</a>
+                            <a href="#" data-value="Tether USDt"><img src="/static/images/tether_usdt_logo.png" alt="Tether USDt"> Tether USDt</a>
+                            <a href="#" data-value="Toncoin"><img src="/static/images/toncoin_logo.png" alt="Toncoin"> Toncoin</a>
+                            <a href="#" data-value="TRON"><img src="/static/images/tron_logo.png" alt="TRON"> TRON</a>
+                            <a href="#" data-value="USDC"><img src="/static/images/usdc_logo.png" alt="USDC"> USDC</a>
+                            <a href="#" data-value="XRP"><img src="/static/images/xrp_logo.png" alt="XRP"> XRP</a>
+                        </div>
+                    </div>
+
+                    <!-- Generate Graph Button -->
+                    <button type="submit">Generate Graph</button>
+                </div>
+
+                <!-- Hidden input to hold selected cryptocurrency -->
+                <input type="hidden" id="choice" name="choice" value="">
+            </form>
+
+            <!-- Output Section -->
+            <div id="output">
+                <h2>Generated Graph:</h2>
+                <!-- Show the default image or generated graph based on the backend condition -->
+                {% if display_graph %}
+                <img id="graph" src="data:image/png;base64,{{ image }}" alt="Generated Graph">
+                {% else %}
+                <img id="graph" src="/static/images/defoult.jpg" alt="Graph will appear here">
+                {% endif %}
+                {% if message %}
+                <p style="color: red;">{{ message }}</p>
+                {% endif %}
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2024 Cryptocurrency Graph Generator. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JQuery Script -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Close dropdown after an item is selected
+            $(".dropdown-content a").click(function (e) {
+                e.preventDefault();
+                const choice = $(this).data("value");
+                $("#choice").val(choice); // Set the hidden input value
+                $("#dropdown-btn").text(choice); // Update button text
+                $("#dropdown-content").hide(); // Close the dropdown menu
+            });
+        });
+    </script>
+</body>
+
+</html>
